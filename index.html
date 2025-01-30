@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Indicadores</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js"></script>
+
+</head>
+<body>
+    <!-- Barra superior con información de contacto -->
+    <div class="top-bar">
+        <div class="contact-info">
+            <span><i class="fas fa-phone"></i> Central: (01) 414-5420</span>
+            <span><i class="fas fa-map-marker-alt"></i> Av la Marina S/N</span>
+        </div>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <!-- Cabecera principal -->
+    <header>
+        <div class="header-content">
+            <img src="img/logoredv.png" alt="Logo Sistema de Indicadores" class="logo">
+            <h1>Sistema de Indicadores</h1>
+        </div>
+        <nav class="main-nav">
+            <a href="#" class="active">Inicio</a>
+            <a href="indicadores-fed.html">Indicadores FED</a>
+            <a href="indicadores-gestion.html">Indicadores de Gestión</a>
+        </nav>
+    </header>
+
+    <!-- Controles de búsqueda y exportación -->
+    <div class="controls">
+        <div class="search-box">
+            <input type="text" placeholder="Buscar indicadores..." class="search-input">
+        </div>
+        <button class="export-button">
+            <i class="fas fa-download"></i> Exportar Datos
+        </button>
+    </div>
+
+    <!-- Sección principal de indicadores -->
+    <main>
+        <h2>Indicadores Sanitarios</h2>
+        <div class="indicators-grid">
+            <!-- Primera Card -->
+            <div class="indicator-card">
+                <h3>Archvichos Planos</h3>
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiNjRiMjBhOTYtZjY0My00MTY2LWIyNjctMmQwZjAxNGI2ODhiIiwidCI6IjQzYzEyNGRiLWYyMzAtNGI4Ni05NDlkLTVhMGQyYTZhN2Y3MSJ9" target="_blank">
+                    <img src="img/indicador.png" alt="ROI Indicator" class="indicator-icon">
+                </a>
+                <p class="description">Te mostramos el archivo plano del 2025 para que puedas verificar tus registros</p>
+                <button class="ficha-btn" onclick="toggleFicha(this)">Ver Ficha Técnica</button>
+                <div class="ficha-tecnica" style="display: none;">
+                    <p class="description">
+                        Un archivo plano es un archivo de datos que contiene información organizada de manera simple, sin estructuras complejas o jerarquías. Este tipo de archivo generalmente almacena datos en texto sin formato, y cada línea del archivo suele representar un registro o una fila de datos.
+            
+                        Características de un archivo plano:
+                        - Simplicidad: No tiene estructuras complejas como tablas o relaciones entre diferentes tipos de datos.
+                        - Formato de texto: El contenido está en texto simple, lo que facilita su lectura y edición con cualquier editor de texto.
+                        - Estructura lineal: Los datos se almacenan en líneas secuenciales, con cada línea representando un registro.
+                        - Separadores: Los datos dentro de cada registro suelen estar separados por algún delimitador (coma, tabulación, espacio, etc.).
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Segunda Card -->
+            <div class="indicator-card">
+                <h3>Reporte 40</h3>
+                <img src="img/bandera.png" alt="Margen Indicator" class="indicator-icon">
+                <p class="description">Se muestra el Reporte por actividades para que cada profesional haga segumiento de sus atenciones y atendidos</p>
+            </div>
+    
+            <!-- Tercera Card -->
+            <div class="indicator-card">
+                <h3>Normas tecnicas y manuales</h3>
+                <img src="img/indicador.png" alt="Liquidez Indicator" class="indicator-icon">
+                <p class="description">En este apartado podrás encontrar las normas y manuales actualizados</p>
+            </div>
+        </div>
+    </main>
+    
+    
+    <!-- Sección de Enlaces Importantes -->
+    <section class="important-links">
+        <h2 class="section-title">ENLACES <span>IMPORTANTES</span></h2>
+        <div class="links-grid">
+            <!-- CNV -->
+            <div class="link-item">
+                <a href="https://portalrcm.reniec.gob.pe/hechosvitales/Login.do" target="_blank">
+                    <img src="img/gore.png" alt="CNV">
+                    <span class="link-text">CNV</span>
+                </a>
+            </div>
+    
+            <!-- HIS MINSA -->
+            <div class="link-item">
+                <a href="https://websalud.minsa.gob.pe/hisminsa/" target="_blank">
+                    <img src="img/Minsa.png" alt="HIS MINSA">
+                    <span class="link-text">HIS MINSA</span>
+                </a>
+            </div>
+    
+            <!-- FED -->
+            <div class="link-item">
+                <a href="https://gestiondeindicadores.com/" target="_blank">
+                    <img src="img/gore.png" alt="FED">
+                    <span class="link-text">GESTION DE INDICDORES</span>
+                </a>
+            </div>
+    
+            <!-- DIGEMID -->
+            <div class="link-item">
+                <a href="https://padronnominal.reniec.gob.pe/padronn/" target="_blank">
+                    <img src="img/diresa.png" alt="DIGEMID">
+                    <span class="link-text">PADRON NOMINAL</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
