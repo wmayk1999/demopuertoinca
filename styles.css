@@ -58,13 +58,13 @@ h1 {
     gap: 1rem;
     margin: 0 auto;
     padding: 0.3rem;
-    max-width: 400px;
+    max-width: 900px;
 }
 
 .main-nav a:not(:last-child) {
-    flex: 0 1 35px; /* Mantiene el ancho fijo pero permite cierta flexibilidad */
+    flex: 1 1 auto;
+    min-width: 0;
 }
-
 /* Contenedor para los tres botones principales */
 .main-nav a:not(:last-child) {
     text-decoration: none;
@@ -76,6 +76,7 @@ h1 {
     text-align: center;
 }
 
+/* Colores suavizados para los enlaces */
 /* Colores suavizados para los enlaces */
 .main-nav a[href="index.html"] {
     background: linear-gradient(to bottom right, #7BC47F, #6ab572);
@@ -97,11 +98,17 @@ h1 {
     background: #ef5350; /* Rojo más suave */
     color: white;
     min-width: 120px;
-    position: absolute;
-    right: 0;
     padding: 0.5rem 2rem;
     border-radius: var(--border-radius);
     text-decoration: none;
+    margin-left: auto;
+    order: 1;
+}
+
+@media (max-width: 768px) {
+    .main-nav a:last-child {
+        margin-top: 1rem;
+    }
 }
 
 /* Efectos hover */
@@ -355,5 +362,38 @@ h2 {
 @media (max-width: 480px) {
     .links-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Estilos existentes */
+
+/* ... */
+
+/* Nuevos estilos para la funcionalidad de contraer/expandir la barra de navegación */
+
+.main-nav {
+    transition: max-height 0.3s ease-out;
+    max-height: 200px; /* Ajusta este valor según la altura de tu barra de navegación */
+    overflow: hidden;
+}
+
+.main-nav.collapsed {
+    max-height: 0;
+}
+
+.toggle-nav {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-left: auto;
+}
+
+@media (max-width: 768px) {
+    .toggle-nav {
+        display: block;
     }
 }

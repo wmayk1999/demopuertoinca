@@ -1,3 +1,7 @@
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Código existente
+
 // Verificar autenticación
 function checkAuth() {
     if (localStorage.getItem('isLoggedIn') !== 'true') {
@@ -47,4 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+});
+// Agregar funcionalidad de contraer/expandir la barra de navegación
+const toggleNavBtn = document.getElementById('toggleNav');
+const mainNav = document.querySelector('.main-nav');
+
+toggleNavBtn.addEventListener('click', function() {
+    mainNav.classList.toggle('collapsed');
+});
 });
