@@ -1,5 +1,5 @@
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded1', function() {
     // Código existente
 
 // Verificar autenticación
