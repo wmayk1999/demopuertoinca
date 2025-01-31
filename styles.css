@@ -58,11 +58,11 @@ h1 {
     gap: 1rem;
     margin: 0 auto;
     padding: 0.3rem;
-    max-width: 900px;
+    max-width: 400px;
 }
 
 .main-nav a:not(:last-child) {
-    flex: 0 1 180px; /* Mantiene el ancho fijo pero permite cierta flexibilidad */
+    flex: 0 1 35px; /* Mantiene el ancho fijo pero permite cierta flexibilidad */
 }
 
 /* Contenedor para los tres botones principales */
@@ -76,7 +76,6 @@ h1 {
     text-align: center;
 }
 
-/* Colores suavizados para los enlaces */
 /* Colores suavizados para los enlaces */
 .main-nav a[href="index.html"] {
     background: linear-gradient(to bottom right, #7BC47F, #6ab572);
