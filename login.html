@@ -98,7 +98,8 @@
             display: none;
         }
     </style>
-    <script src="auth.js" defer></script>
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="login-container">
@@ -123,34 +124,5 @@
             </form>
         </div>
     </div>
-
-    <script>
-        function validateLogin(event) {
-            event.preventDefault();
-            
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('errorMessage');
-            
-            if (username === 'puertoinca' && password === 'puertoinca') {
-                // Guardar el estado de login
-                localStorage.setItem('isLoggedIn', 'true');
-                // Redirigir a la página principal
-                window.location.href = 'index.html';
-            } else {
-                errorMessage.style.display = 'block';
-                setTimeout(() => {
-                    errorMessage.style.display = 'none';
-                }, 3000);
-            }
-            
-            return false;
-        }
-
-        // Verificar si ya está logueado
-        if (localStorage.getItem('isLoggedIn') === 'true') {
-            window.location.href = 'index.html';
-        }
-    </script>
 </body>
 </html>
