@@ -98,6 +98,7 @@
             display: none;
         }
     </style>
+    <script src="auth.js" defer></script>
 </head>
 <body>
     <div class="login-container">
@@ -106,7 +107,7 @@
                 <img src="img/logoredv.png" alt="Logo">
                 <h2>Sistema de Indicadores</h2>
             </div>
-            <form id="loginForm" onsubmit="return validateLogin(event)">
+            <form id="loginForm">
                 <div class="form-group">
                     <i class="fas fa-user"></i>
                     <input type="text" class="form-control" id="username" placeholder="Usuario" required>

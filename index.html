@@ -6,12 +6,13 @@
     <title>Sistema de Indicadores</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
 </head>
 <body>
     <!-- Cabecera principal -->
   <!-- Header unificado para todas las páginas -->
+<!-- Header unificado para todas las páginas -->
 <header>
     <div class="header-content">
         <h1>Sistema de Indicadores</h1>
@@ -24,14 +25,138 @@
     <button id="toggleNav" class="toggle-nav">&#9776;</button>
 </header>
 
+<!-- Sección Hero con logo y título -->
+<section class="hero-section">
+    <div class="hero-content">
+        <div class="hero-title-box">
+            <h1 class="hero-title">ESTADISTICA - RSPI</h1>
+        </div>
+        <p class="hero-subtitle">
+            Proveer información Estadística para la Planificación, Programación, Gestión y Evaluación de las acciones de Salud
+        </p>
+        <div class="hero-buttons">
+            <a href="#vision" class="hero-button">Visón →</a>
+            <a href="#mision" class="hero-button mission-button">Misión →</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="img/logoprin.png" alt="OITE Illustration">
+    </div>
+</section>
+<!-- Nueva sección de Datos Estadísticos -->
+<main>
+    <!-- Título principal centrado -->
+    <div class="title-section">
+        <h2>DATOS ESTADÍSTICOS</h2>
+        <div class="subtitle">
+            OFICINA DE <span class="institution-name">INFORMATICA, TELECOMUNICACIONES Y ESTADISTICA</span>
+        </div>
+        <div class="subtitle">
+            <span class="institution-name">UE407 - RED DE SALUD PUERTO INCA</span>
+        </div>
+    </div>
+<!-- Contadores estadísticos -->
+<div class="stats-counter-grid">
+    <!-- Población -->
+    <div class="counter-item">
+        <div class="counter-icon">
+            <i class="fas fa-users"></i>
+        </div>
+        <div class="counter-number">37,718</div>
+        <div class="counter-label">Población 2025</div>
+    </div>
+
+    <!-- Redes de Salud -->
+    <div class="counter-item">
+        <div class="counter-icon">
+            <i class="fas fa-hospital-user"></i>
+        </div>
+        <div class="counter-number">5</div>
+        <div class="counter-label">Microredes</div>
+    </div>
+
+    <!-- Establecimientos -->
+    <div class="counter-item">
+        <div class="counter-icon">
+            <i class="fas fa-clinic-medical"></i>
+        </div>
+        <div class="counter-number">38</div>
+        <div class="counter-label">Establecimiento de Salud</div>
+    </div>
+
+    <!-- Hospitales -->
+    <div class="counter-item">
+        <div class="counter-icon">
+            <i class="fas fa-hospital"></i>
+        </div>
+        <div class="counter-number">0</div>
+        <div class="counter-label">Hospitales</div>
+    </div>
+</div>
+    <!-- Grid de tarjetas estadísticas -->
+    <div class="indicators-grid">
+        <!-- Tarjeta 1 - Población -->
+        <div class="stats-card">
+            <img src="img/poblacion.jpg" alt="Población" class="card-image">
+            <h3>Población</h3>
+            <a href="https://1drv.ms/f/c/3d974d7e0469fbf5/ElNUE1pA80hGngSHt23x_HgB4RXBoeZz70TH16c4bCNIrg?e=hPx9Am" class="stats-button">
+                Acceder
+            </a>
+        </div>
+
+        <!-- Tarjeta 2 - Establecimiento de Salud -->
+        <div class="stats-card">
+            <img src="img/hospital.jpg" alt="Establecimiento de Salud" class="card-image">
+            <h3>Establecimiento de Salud</h3>
+            <a href="https://1drv.ms/f/c/3d974d7e0469fbf5/Etu-5LXqt9tGm24fAKAARSwBQxVOQr88yZ_Wo5bsfsUbGg?e=DhcdCA" class="stats-button">
+                Acceder
+            </a>
+        </div>
+
+        <!-- Tarjeta 3 - Atenciones & Atendidos -->
+        <div class="stats-card">
+            <img src="img/atenciones.jpg" alt="Atenciones & Atendidos" class="card-image">
+            <h3>Atenciones & Atendidos</h3>
+            <a href="https://1drv.ms/f/c/3d974d7e0469fbf5/Eh-5BppPQU9BkSvQE3QdHwYBhpcSoC5GRn3c-k-PUDWJ_w?e=MepAd7" class="stats-button">
+                Acceder
+            </a>
+        </div>
+
+        <!-- Tarjeta 4 - Morbilidad -->
+        <div class="stats-card">
+            <img src="img/poblacion2.jpg" alt="Morbilidad" class="card-image">
+            <h3>Población Asignada</h3>
+            <a href="https://1drv.ms/f/c/3d974d7e0469fbf5/Eq3ukC8ebFhGmVbXSVaWMl4Bl5oRcTMuZSWmJc5moLpMGg?e=xwX2rk" class="stats-button">
+                Acceder
+            </a>
+        </div>
+                <!-- Tarjeta 3 - Atenciones & Atendidos -->
+        <div class="stats-card">
+            <img src="img/desnutrición.jpg" alt="Atenciones & Atendidos" class="card-image">
+             <h3>Desnutrición</h3>
+             <a href="https://1drv.ms/f/c/3d974d7e0469fbf5/EuJopA7vXE5CkDCR_CHfkicBCr2bswgO-znkcSyzhi_0dw?e=1Rra16" class="stats-button">
+                        Acceder
+              </a>
+        </div>
+        
+                <!-- Tarjeta 4 - Morbilidad -->
+        <div class="stats-card">
+                <img src="img/padron.png" alt="Morbilidad" class="card-image">
+                <h3>Padron Nominal</h3>
+                 <a href="https://1drv.ms/f/c/3d974d7e0469fbf5/EhzpbVVpbkxHhR6Ys_H5q6oB79ra1hXj7le7uKs345Zpmg?e=8Ngvod" class="stats-button">
+                        Acceder
+                 </a>
+        </div>
+    </div>
+</main>
     <!-- Sección principal de indicadores -->
     <main>
         <h2>Indicadores Sanitarios</h2>
         <div class="indicators-grid">
             <!-- Primera Card -->
             <div class="indicator-card">
-                <h3>Archvichos Planos</h3>
-                <a href="https://app.powerbi.com/view?r=eyJrIjoiNjRiMjBhOTYtZjY0My00MTY2LWIyNjctMmQwZjAxNGI2ODhiIiwidCI6IjQzYzEyNGRiLWYyMzAtNGI4Ni05NDlkLTVhMGQyYTZhN2Y3MSJ9" target="_blank">
+                <h3>Materno Neonatal</h3>
+                <a href="................com" target="_blank">
                     <img src="img/indicador.png" alt="ROI Indicator" class="indicator-icon">
                 </a>
                 <p class="description">Te mostramos el archivo plano del 2025 para que puedas verificar tus registros</p>
@@ -51,8 +176,8 @@
     
             <!-- Segunda Card -->
             <div class="indicator-card">
-                <h3>Reporte 40</h3>
-                <a href="https://app.powerbi.com/view?r=eyJrIjoiNjRiMjBhOTYtZjY0My00MTY2LWIyNjctMmQwZjAxNGI2ODhiIiwidCI6IjQzYzEyNGRiLWYyMzAtNGI4Ni05NDlkLTVhMGQyYTZhN2Y3MSJ9" target="_blank">              
+                <h3>Promocion de la Salud</h3>
+                <a href=".............com" target="_blank">              
                     <img src="img/reporte40.jpg" alt="Margen Indicator" class="indicator-icon">
                 </a>
                 <p class="description">Se muestra el Reporte por actividades para que cada profesional haga segumiento de sus atenciones y atendidos</p>
@@ -60,8 +185,8 @@
     
             <!-- Tercera Card -->
             <div class="indicator-card">
-                <h3>Normas tecnicas y manuales</h3>
-                <a href="https://weboite.diresahuanuco.gob.pe/Manuales" target="_blank"> 
+                <h3>Desarrollo Infantil Temprtano</h3>
+                <a href="....................com" target="_blank"> 
                     <img src="img/indicador.png" alt="Liquidez Indicator" class="indicator-icon">
                 </a>
                 <p class="description">En este apartado podrás encontrar las normas y manuales actualizados</p>
