@@ -1,12 +1,17 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Verificar autenticación usando el nuevo sistema de auth.js
+    // Evitar ejecutar la verificación en la página de login
+    if (window.location.pathname.includes('login.html')) {
+        return;
+    }
+
+    // Verificar autenticación solo en las páginas protegidas
     if (!isAuthenticated()) {
         window.location.href = 'login.html';
         return;
     }
 
-    // Configurar la interfaz de usuario
+    // Configurar la interfaz de usuario solo si estamos en una página protegida
     setupUI();
 });
 
@@ -17,8 +22,10 @@ function setupUI() {
     // Configurar navegación responsive
     setupResponsiveNav();
     
-    // Configurar fichas técnicas
-    setupFichasTecnicas();
+    // Configurar fichas técnicas solo si existen en la página
+    if (document.querySelector('.ficha-btn')) {
+        setupFichasTecnicas();
+    }
 }
 
 function addLogoutButton() {

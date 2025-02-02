@@ -1,12 +1,12 @@
 // auth.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Verificar token y timestamp al cargar la página
-    checkAuthAndRedirect();
-
-    // Configurar el manejo del formulario de login
+    // Solo configurar el formulario de login si estamos en la página de login
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', handleLogin);
+    } else {
+        // Si no estamos en la página de login, verificar autenticación
+        checkAuthAndRedirect();
     }
 });
 
@@ -22,15 +22,12 @@ function handleLogin(event) {
         const token = btoa(JSON.stringify({
             user: username,
             timestamp: Date.now(),
-            // Añadir un valor aleatorio para hacer el token más único
             nonce: Math.random().toString(36).substring(7)
         }));
         
-        // Guardar token y timestamp
         sessionStorage.setItem('authToken', token);
         sessionStorage.setItem('loginTimestamp', Date.now().toString());
         
-        // Redirigir a la página principal
         window.location.href = 'index.html';
     } else {
         errorMessage.style.display = 'block';
@@ -41,21 +38,18 @@ function handleLogin(event) {
 }
 
 function checkAuthAndRedirect() {
-    // Si estamos en login.html y el usuario está autenticado, redirigir a index
-    if (window.location.pathname.includes('login.html')) {
-        if (isAuthenticated()) {
-            window.location.href = 'index.html';
-        }
-        return;
-    }
-    
-    // Si no estamos en login.html y el usuario no está autenticado, redirigir a login
-    if (!isAuthenticated()) {
+    // Solo hacer la redirección si no estamos ya en la página correcta
+    const isLoginPage = window.location.pathname.includes('login.html');
+    const isAuthenticated = checkAuthentication();
+
+    if (isLoginPage && isAuthenticated) {
+        window.location.href = 'index.html';
+    } else if (!isLoginPage && !isAuthenticated) {
         window.location.href = 'login.html';
     }
 }
 
-function isAuthenticated() {
+function checkAuthentication() {
     const token = sessionStorage.getItem('authToken');
     const timestamp = sessionStorage.getItem('loginTimestamp');
     
@@ -64,15 +58,12 @@ function isAuthenticated() {
     }
 
     try {
-        // Decodificar el token
         const tokenData = JSON.parse(atob(token));
         
-        // Verificar que el token corresponde al timestamp almacenado
         if (tokenData.timestamp.toString() !== timestamp) {
             return false;
         }
         
-        // Verificar si han pasado más de 2 horas (7200000 ms)
         if (Date.now() - parseInt(timestamp) > 7200000) {
             logout();
             return false;
@@ -82,6 +73,10 @@ function isAuthenticated() {
     } catch (e) {
         return false;
     }
+}
+
+function isAuthenticated() {
+    return checkAuthentication();
 }
 
 function logout() {

@@ -1,3 +1,8 @@
+/* Agregar al inicio de styles.css */
+body.loading {
+    visibility: hidden;
+}
+
 /* Variables globales */
 :root {
     --primary-color: #1c4e80;
