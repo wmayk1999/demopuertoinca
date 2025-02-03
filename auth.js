@@ -1,3 +1,5 @@
+// ESTA VERSION MEJORADA
+
 // auth.js
 document.addEventListener('DOMContentLoaded', function() {
     // Solo configurar el formulario de login si estamos en la página de login
@@ -10,31 +12,57 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function handleLogin(event) {
+async function handleLogin(event) {
     event.preventDefault();
     
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const errorMessage = document.getElementById('errorMessage');
     
-    if (username === 'puertoinca' && password === 'puertoinca') {
-        // Crear un token simple con timestamp
-        const token = btoa(JSON.stringify({
-            user: username,
-            timestamp: Date.now(),
-            nonce: Math.random().toString(36).substring(7)
-        }));
+    try {
+        // Verificación temporal de credenciales mientras se implementa el backend
+        if (username === 'puertoinca' && password === 'puertoinca') {
+            // Generar un token JWT simulado con expiración de 2 horas
+            const token = generateTemporaryJWT(username);
+            handleSuccessfulLogin(token);
+            window.location.href = 'index.html';
+            return;
+        }
         
-        sessionStorage.setItem('authToken', token);
-        sessionStorage.setItem('loginTimestamp', Date.now().toString());
-        
-        window.location.href = 'index.html';
-    } else {
         errorMessage.style.display = 'block';
+        errorMessage.textContent = 'Credenciales inválidas';
+        setTimeout(() => {
+            errorMessage.style.display = 'none';
+        }, 3000);
+    } catch (error) {
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = 'Error en el inicio de sesión';
         setTimeout(() => {
             errorMessage.style.display = 'none';
         }, 3000);
     }
+}
+
+function generateTemporaryJWT(username) {
+    const header = btoa(JSON.stringify({ alg: 'HS256', typ: 'JWT' }));
+    const now = Math.floor(Date.now() / 1000);
+    const payload = btoa(JSON.stringify({
+        sub: username,
+        iat: now,
+        exp: now + (2 * 60 * 60), // 2 horas de expiración
+        nonce: crypto.getRandomValues(new Uint8Array(16)).join('')
+    }));
+    
+    // En una implementación real, esto debería estar firmado con una clave secreta
+    const signature = btoa('temporary-signature');
+    
+    return `${header}.${payload}.${signature}`;
+}
+
+function handleSuccessfulLogin(token) {
+    // Almacenar token en sessionStorage
+    sessionStorage.setItem('authToken', token);
+    sessionStorage.setItem('loginTimestamp', Date.now().toString());
 }
 
 function checkAuthAndRedirect() {
@@ -58,13 +86,11 @@ function checkAuthentication() {
     }
 
     try {
-        const tokenData = JSON.parse(atob(token));
+        // Decodificar token JWT
+        const payload = JSON.parse(atob(token.split('.')[1]));
         
-        if (tokenData.timestamp.toString() !== timestamp) {
-            return false;
-        }
-        
-        if (Date.now() - parseInt(timestamp) > 7200000) {
+        // Verificar timestamp
+        if (Date.now() - parseInt(timestamp) > 7200000) { // 2 horas
             logout();
             return false;
         }
