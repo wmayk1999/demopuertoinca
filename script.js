@@ -13,6 +13,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Configurar la interfaz de usuario solo si estamos en una página protegida
     setupUI();
+
+    // AQUÍ EMPIEZA EL CÓDIGO DEL MODAL
+    // Código del modal - Solo se ejecuta en la página de inicio
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+        const modal = document.getElementById('newsModal');
+        const closeButton = document.querySelector('.close-button');
+        
+        // Mostrar el modal automáticamente después de 1 segundo
+        setTimeout(() => {
+            modal.style.display = 'block';
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+        }, 1000);
+
+        // Cerrar modal con el botón X
+        closeButton.addEventListener('click', () => {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        });
+
+        // Cerrar modal haciendo clic fuera
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+    // AQUÍ TERMINA EL CÓDIGO DEL MODAL
 });
 
 function setupUI() {
